@@ -31,28 +31,52 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header */
+/* Header - Versión mejorada */
 .header {
   background: var(--color-secundario) !important;
   box-shadow: 0 2px 10px var(--color-sombra);
   position: relative;
   z-index: 1000;
+  padding: 0.75rem 0;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
 }
 
 .site-title {
   font-family: 'Arial Black', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: var(--color-dominante);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: fadeIn 1.5s ease-in-out;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
 }
 
 .site-subtitle {
   color: var(--color-dominante);
   opacity: 0.9;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+/* Botón modo oscuro mejorado */
+#darkModeToggle {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+#darkModeToggle i {
+  margin-right: 0.25rem;
 }
 
 /* Menú de navegación */
@@ -73,10 +97,10 @@ a:hover {
   color: var(--color-dominante) !important;
   font-weight: 500;
   transition: all 0.3s ease;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   position: relative;
 }
@@ -553,10 +577,71 @@ a:hover {
   margin-top: 15px;
 }
 
+/* Modo oscuro */
+[data-theme="dark"] {
+  --color-dominante: #1a3a2e;
+  --color-secundario: #000000;
+  --color-acento: #e74c3c;
+  --color-texto: #f0f0f0;
+  --color-blanco: #121212;
+  --color-negro: #f0f0f0;
+  --color-sombra: rgba(0, 0, 0, 0.3);
+  --color-borde: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] body {
+  background-color: var(--color-blanco);
+  color: var(--color-texto);
+}
+
+[data-theme="dark"] .header,
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .footer {
+  background-color: var(--color-secundario) !important;
+  color: var(--color-texto);
+}
+
+[data-theme="dark"] .card {
+  background-color: var(--color-dominante);
+  border-color: var(--color-borde);
+  color: var(--color-texto);
+}
+
+[data-theme="dark"] .btn-acento {
+  background-color: var(--color-acento);
+  color: var(--color-negro);
+}
+
+[data-theme="dark"] .gallery-card {
+  background-color: var(--color-dominante);
+  border-color: var(--color-acento);
+}
+
+[data-theme="dark"] .form-control {
+  background-color: var(--color-blanco);
+  color: var(--color-texto);
+  border-color: var(--color-borde);
+}
+
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .cta-section {
+  background-color: var(--color-secundario) !important;
+  color: var(--color-texto);
+}
+
+[data-theme="dark"] .features-section {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Transiciones suaves */
+body, .card, .header, .footer, .form-control, .navbar, .hero-section, .features-section, .cta-section {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .site-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .nav-link {
@@ -565,13 +650,26 @@ a:hover {
   }
   
   .hero-section h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  
+  .logo-img {
+    height: 50px;
   }
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+  
   .site-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  .site-subtitle {
+    font-size: 0.9rem;
   }
   
   .navbar-collapse {
@@ -580,6 +678,8 @@ a:hover {
   
   .nav-link {
     margin: 5px 0;
+    font-size: 0.75rem;
+    padding: 6px 10px;
   }
   
   .card {
@@ -592,7 +692,7 @@ a:hover {
   
   .hero-section {
     text-align: center;
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
   
   .hero-section .btn {
@@ -606,13 +706,31 @@ a:hover {
   }
   
   .hero-section img {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    max-width: 100%;
+  }
+  
+  #darkModeToggle {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  
+  #darkModeToggle span {
+    display: none;
+  }
+  
+  #darkModeToggle i {
+    margin-right: 0;
   }
 }
 
 @media (max-width: 576px) {
   .site-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .logo-img {
+    height: 40px;
   }
   
   .btn {
@@ -636,5 +754,10 @@ a:hover {
   
   .feature-card .card-body {
     padding: 1.5rem;
+  }
+  
+  .testimonial-card img {
+    width: 50px;
+    height: 50px;
   }
 }

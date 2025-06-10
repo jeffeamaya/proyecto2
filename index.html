@@ -7,18 +7,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 <body>
     <div class="container-fluid p-0">
-        <header class="header bg-success text-white py-4" style="position: relative;">
-        <div class="container">
-            <img src="img/logo2.png" alt="Logo" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); height: 120px;">
-            <div class="text-center">
-                <h1 class="site-title mb-0">Hogar para Conejos</h1>
-                <p class="mb-0">Dando hogares amorosos a conejos necesitados</p>
+        <header class="header bg-success text-white py-3 py-md-4">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+            <!-- Logo con contenedor flexible -->
+            <div class="d-flex align-items-center">
+                <img src="img/logo2.png" alt="Logo" class="logo-img me-2 me-md-3">
+                <div class="d-none d-md-block">
+                    <h1 class="site-title mb-0">Hogar para Conejos</h1>
+                    <p class="mb-0 site-subtitle">Dando hogares amorosos a conejos necesitados</p>
+                </div>
             </div>
+            
+            <!-- Título para móviles -->
+            <div class="d-md-none text-center mx-auto">
+                <h1 class="site-title mb-0">Hogar para Conejos</h1>
+            </div>
+            
+            <!-- Botón de modo oscuro más pequeño -->
+            <button id="darkModeToggle" class="btn btn-sm btn-outline-light py-1 px-2">
+                <i class="fas fa-moon"></i> <span class="d-none d-sm-inline">Modo Oscuro</span>
+            </button>
         </div>
-        </header>
+        
+        <!-- Subtítulo solo para móviles -->
+        <p class="mb-0 text-center d-md-none mt-2 site-subtitle">Dando hogares amorosos a conejos necesitados</p>
+    </div>
+</header>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -183,5 +202,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/darkmode.js"></script>
 </body>
 </html>
